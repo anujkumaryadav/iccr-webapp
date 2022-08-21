@@ -79,7 +79,6 @@ export default function Login() {
         <>
             <div className="app">
                 <div className="login-form">
-
                     <div className="title">Indian Council for Cultural Relations</div>
                     {isSubmitted ? <div>You Logged In Succesfully </div> : renderForm}
                 </div>
