@@ -50,15 +50,15 @@ router.post('/login', async (req, res) => {
                 }
             })
 
-            res.json("Login Successful")
+            res.status(200).json("Login Successful")
         }
         else{
-            res.json("Invalid Password")
+            res.status(401).json("Invalid Password")
         }
 
     }catch(err){
         console.log(err)
-        res.json("Invalid Username")
+        res.status(401).json("Invalid Username")
     }
 
 })

@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
+import axios from 'axios'
 
 export default function Login() {
 
     // React States
-    const [errorMessages, setErrorMessages] = useState({});
+    // const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     // User Login info
@@ -28,30 +29,41 @@ export default function Login() {
         //Prevent page reload
         event.preventDefault();
 
-        var { uname, pass } = document.forms[0];
+        let uname = document.getElementById('username').value
+        let password = document.getElementById('password').value
 
-        // Find user login info
-        const userData = database.find((user) => user.username === uname.value);
-
-        // Compare user info
-        if (userData) {
-            if (userData.password !== pass.value) {
-                // Invalid password
-                setErrorMessages({ name: "pass", message: errors.pass });
-            } else {
-                setIsSubmitted(true);
+        var config = {
+            method: 'post',
+            url: 'http://localhost:8001/auth/login',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            data: {
+                username : uname,
+                password : password
             }
-        } else {
-            // Username not found
-            setErrorMessages({ name: "uname", message: errors.uname });
-        }
+          };
+      
+          axios(config)
+            .then(function (response) {
+                console.log(response)
+                if( response.status === 200 ){
+                    alert(response.data)
+                }
+
+            })
+            .catch(function (error) {
+              alert(error.response.data)
+            //   renderErrorMessage("uname")
+            });
+
     };
 
-    // Generate JSX code for error message
-    const renderErrorMessage = (name) =>
-        name === errorMessages.name && (
-            <div className="error">{errorMessages.message}</div>
-        );
+    // // Generate JSX code for error message
+    // const renderErrorMessage = (name) =>
+    //     name === errorMessages.name && (
+    //         <div className="error">{errorMessages.message}</div>
+    //     );
 
     // JSX code for login form
     const renderForm = (
@@ -59,13 +71,13 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
                     <label>Username </label>
-                    <input type="text" name="uname" required />
-                    {renderErrorMessage("uname")}
+                    <input type="text" name="uname" id='username' required />
+                    {/* {renderErrorMessage("uname")} */}
                 </div>
                 <div className="input-container">
                     <label>Password </label>
-                    <input type="password" name="pass" required />
-                    {renderErrorMessage("pass")}
+                    <input type="password" name="pass" id='password' required />
+                    {/* {renderErrorMessage("pass")} */}
                 </div>
                 <div className="button-container">
                     <input type="submit" />

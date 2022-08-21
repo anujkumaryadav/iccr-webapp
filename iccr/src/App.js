@@ -4,6 +4,7 @@ import {  BrowserRouter as Router,  Routes,  Route,  Link, BrowserRouter  }   fr
 
 
 import "./App.css";
+import Dashboard from "./Pages/ICCR Dashboard/Dashboard";
 import Login from "./Pages/Login/Login";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Login/>} />
           <Route path='/login' element={<Login/>} />
+          <Route path='/IccrDashboard' element={<Dashboard/>} />
         </Routes>
       
       </BrowserRouter>
