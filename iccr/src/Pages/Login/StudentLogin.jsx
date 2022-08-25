@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios'
+import { Navigate } from 'react-router-dom';
 // import { Dropdown } from "react-bootstrap/Dropdown";
 
 export default function StudentLogin() {
@@ -27,18 +28,32 @@ export default function StudentLogin() {
         //Prevent page reload
         event.preventDefault();
 
-        let Stuuname = document.getElementById('username').value
-        let Stupassword = document.getElementById('password').value
+        let fullName = document.getElementById('studentName').value
+        let email =  document.getElementById('emailId').value
+        let countryOfOrigin =  "USA"
+        let gender =  document.getElementById('gender').value
+        let hospitalAccomodity =  document.getElementById('hostel').value
+
+        console.log(
+            fullName ,
+            email ,
+            countryOfOrigin,
+            gender ,
+            hospitalAccomodity
+        )
 
         var config = {
             method: 'post',
-            url: 'http://localhost:8001/auth/login',
+            url: 'http://localhost:8001/studentAuth/register',
             headers: {
               'Content-Type': 'application/json'
             },
             data: {
-                username : Stuuname,
-                password : Stupassword
+                fullName,
+                email,
+                countryOfOrigin,
+                gender,
+                hospitalAccomodity 
             }
           };
       
@@ -47,6 +62,7 @@ export default function StudentLogin() {
                 console.log(response)
                 if( response.status === 200 ){
                     alert(response.data)
+                    setIsSubmitted(true)
                 }
 
             })
@@ -68,14 +84,9 @@ export default function StudentLogin() {
         <div className="form">
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
-                    <label>Username </label>
-                    <input type="text" name="Stuuname" id='username' required />
+                    <label>Full Name </label>
+                    <input type="text" name="Stuuname" id='studentName' required />
                     {/* {renderErrorMessage("uname")} */}
-                </div>
-                <div className="input-container">
-                    <label>Password </label>
-                    <input type="password" name="Stupass" id='password' required />
-                    {/* {renderErrorMessage("pass")} */}
                 </div>
                 <div className="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id='dropdownMenuButton' data-toggle="dropdown" aria-haspop="true" aria-expanded="false"  >
@@ -90,12 +101,12 @@ export default function StudentLogin() {
                 
                 <div className="input-container">
                     <label>Email id</label>
-                    <input type="email id" name="email" id='email-id' required />
+                    <input type="email id" name="email" id='emailId' required />
                     {/* {renderErrorMessage("pass")} */}
                 </div>
                 <div className="input-container">
                     <label>Hostel Accomodity</label>
-                    <input type="text" name="host" id='hostel ' required />
+                    <input type="text" name="host" id='hostel' required />
                     {/* {renderErrorMessage("pass")} */}
                 </div>
                 <div className="input-container">
