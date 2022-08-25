@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios'
+import { Dropdown } from "react-bootstrap/Dropdown";
 
-export default function Login() {
+export default function StudentLogin() {
 
     // React States
     // const [errorMessages, setErrorMessages] = useState({});
@@ -11,12 +12,9 @@ export default function Login() {
     // User Login info
     const database = [
         {
-            username: "iccr",
-            password: "1234"
-        },
-        {
-            username: "ro",
-            password: "1234"
+            username: "student1",
+            password: "1234",
+            
         }
     ];
 
@@ -29,8 +27,8 @@ export default function Login() {
         //Prevent page reload
         event.preventDefault();
 
-        let uname = document.getElementById('username').value
-        let password = document.getElementById('password').value
+        let Stuuname = document.getElementById('username').value
+        let Stupassword = document.getElementById('password').value
 
         var config = {
             method: 'post',
@@ -39,8 +37,8 @@ export default function Login() {
               'Content-Type': 'application/json'
             },
             data: {
-                username : uname,
-                password : password
+                username : Stuuname,
+                password : Stupassword
             }
           };
       
@@ -71,12 +69,38 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
                     <label>Username </label>
-                    <input type="text" name="uname" id='username' required />
+                    <input type="text" name="Stuuname" id='username' required />
                     {/* {renderErrorMessage("uname")} */}
                 </div>
                 <div className="input-container">
                     <label>Password </label>
-                    <input type="password" name="pass" id='password' required />
+                    <input type="password" name="Stupass" id='password' required />
+                    {/* {renderErrorMessage("pass")} */}
+                </div>
+                <div className="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id='dropdownMenuButton' data-toggle="dropdown" aria-haspop="true" aria-expanded="false"  >
+                        Country
+                     </button>
+
+        
+                    </div>
+                   {/*<label>Country</label>
+                    <input type="country" name="cont" id='country' required />
+                     {renderErrorMessage("pass")} */}
+                
+                <div className="input-container">
+                    <label>Email id</label>
+                    <input type="email id" name="email" id='email-id' required />
+                    {/* {renderErrorMessage("pass")} */}
+                </div>
+                <div className="input-container">
+                    <label>Hostel Accomodity</label>
+                    <input type="text" name="host" id='hostel ' required />
+                    {/* {renderErrorMessage("pass")} */}
+                </div>
+                <div className="input-container">
+                    <label>Gender</label>
+                    <input type="gender" name="gender" id='gender' required />
                     {/* {renderErrorMessage("pass")} */}
                 </div>
                 <div className="button-container">
@@ -91,7 +115,7 @@ export default function Login() {
         <>
             <div className="app">
                 <div className="login-form">
-                    <div className="title">Indian Council for Cultural Relations</div>
+                    <div className="title">STUDENT SIGN UP PAGE</div>
                     {isSubmitted ? <div>You Logged In Succesfully </div> : renderForm}
                 </div>
             </div>
