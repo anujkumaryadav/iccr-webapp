@@ -5,8 +5,8 @@ import {  BrowserRouter as Router,  Routes,  Route,  Link, BrowserRouter  }   fr
 
 import "./App.css";
 import Dashboard from "./Pages/ICCR/Dashboard/Dashboard";
-import InstituteLogIn from './Pages/InstituteLogIn/Login/InstituteLogIn';
-import StudentLogin from './Pages/Login/StudentLogin'
+import InstituteLogIn from './Pages/Institute/Login/InstituteLogIn';
+import StudentLogin from './Pages/Student/Login/StudentLogin'
 
 function App() {
 
