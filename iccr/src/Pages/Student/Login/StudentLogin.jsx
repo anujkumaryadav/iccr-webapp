@@ -33,13 +33,14 @@ export default function StudentLogin() {
         let countryOfOrigin =  "USA"
         let gender =  document.getElementById('gender').value
         let hospitalAccomodity =  document.getElementById('hostel').value
+        let certificate =  document.getElementById('certificate').value
 
         console.log(
             fullName ,
             email ,
             countryOfOrigin,
             gender ,
-            hospitalAccomodity
+            hospitalAccomodity,
         )
 
         var config = {
@@ -112,6 +113,11 @@ export default function StudentLogin() {
                 <div className="input-container">
                     <label>Gender</label>
                     <input type="gender" name="gender" id='gender' required />
+                    {/* {renderErrorMessage("pass")} */}
+                </div>
+                <div className="input-container">
+                    <label>Certificate</label>
+                    <input type="file" name="certificate" id='certificate' required />
                     {/* {renderErrorMessage("pass")} */}
                 </div>
                 <div className="button-container">

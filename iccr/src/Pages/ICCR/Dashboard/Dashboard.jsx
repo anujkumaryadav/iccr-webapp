@@ -3,7 +3,6 @@ import Navbar from '../../../Components/Navbar/Navbar'
 import { useState, useEffect, useRef } from 'react'
 import { FiCamera, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import './Dashboard.css'
-import ROImage from '../../../Assets/Images/RO.jpg'
 
 export default function Home() {
 

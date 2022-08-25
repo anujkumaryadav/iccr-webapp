@@ -8,6 +8,7 @@ import Dashboard from "./Pages/ICCR/Dashboard/Dashboard";
 import InstituteLogIn from './Pages/Institute/Login/InstituteLogIn';
 import StudentLogin from './Pages/Student/Login/StudentLogin'
 import ICCRDashboard from './Pages/ICCR/Dashboard/Dashboard'
+import StudentDashboard from "./Pages/Student/Dashboard/StudentDashboard";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/student-login' element={<StudentLogin/>} />
           <Route path='/institute-login' element={<InstituteLogIn/>} />
           <Route path='/IccrDashboard' element={<ICCRDashboard/>} />
+          <Route path='/studentDashboard' element={<StudentDashboard/>} />
         </Routes>
       
       </BrowserRouter>
