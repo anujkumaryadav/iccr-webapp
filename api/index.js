@@ -9,6 +9,7 @@ const cors = require("cors");
 
 const authRoute = require("../api/Routes/ICCR/Authentication/Auth")
 const StudentAuthRoute = require("../api/Routes/Student/Authentication/Auth")
+const ROAuthRoute = require("../api/Routes/RO/Authenticatiom/Auth")
 
 
 dotenv.config();
@@ -32,6 +33,7 @@ app.use(express.json())
 
 app.use("/auth" , authRoute)
 app.use("/studentAuth" , StudentAuthRoute)
+app.use("/ROAuth" , ROAuthRoute)
 
 
 app.listen( 8001 , ()=>{
