@@ -4,8 +4,9 @@ import {  BrowserRouter as Router,  Routes,  Route,  Link, BrowserRouter  }   fr
 
 
 import "./App.css";
-import Dashboard from "./Pages/ICCR Dashboard/Dashboard";
-import Login from "./Pages/Login/Login";
+import Dashboard from "./Pages/ICCR/Dashboard/Dashboard";
+import InstituteLogIn from './Pages/InstituteLogIn/Login/InstituteLogIn';
+import StudentLogin from './Pages/Login/StudentLogin'
 
 function App() {
 
@@ -13,8 +14,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Login/>} />
-          <Route path='/login' element={<Login/>} />
+          <Route path='/' element={<StudentLogin/>} />
+          <Route path='/student-login' element={<StudentLogin/>} />
+          <Route path='/institute-login' element={<InstituteLogIn/>} />
           <Route path='/IccrDashboard' element={<Dashboard/>} />
         </Routes>
       

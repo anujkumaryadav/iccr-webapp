@@ -24,35 +24,46 @@ export default function InstituteLogIn() {
         event.preventDefault();
 
         let Rname = document.getElementById('Rname').value
+        let Institutename = document.getElementById('Institutename').value
+        let Instituteemail = document.getElementById('Instituteemail').value
+        let Institutepass = document.getElementById('Institutepass').value
         let COInstitutepass = document.getElementById('COInstitutepass').value
 
-        var config = {
-            method: 'post',
-            url: 'http://localhost:8001/auth/login',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            data: {
-                Rname : Rname,
-                Institutename : Institutename,
-                Instituteemail :Instituteemail,
-                Institutepass : Institutepass,
-                COInstitutepass : COInstitutepass,
-            }
-          };
-      
-          axios(config)
-            .then(function (response) {
-                console.log(response)
-                if( response.status === 200 ){
-                    alert(response.data)
-                }
+        console.log(
+            Rname,
+            Institutename,
+            Instituteemail,
+            Institutepass,
+            COInstitutepass
+        )
 
-            })
-            .catch(function (error) {
-              alert(error.response.data)
-            //   renderErrorMessage("uname")
-            });
+        // var config = {
+        //     method: 'post',
+        //     url: 'http://localhost:8001/auth/login',
+        //     headers: {
+        //       'Content-Type': 'application/json'
+        //     },
+        //     data: {
+        //         Rname : Rname,
+        //         Institutename : Institutename,
+        //         Instituteemail :Instituteemail,
+        //         Institutepass : Institutepass,
+        //         COInstitutepass : COInstitutepass,
+        //     }
+        //   };
+
+        //   axios(config)
+        //     .then(function (response) {
+        //         console.log(response)
+        //         if( response.status === 200 ){
+        //             alert(response.data)
+        //         }
+
+        //     })
+        //     .catch(function (error) {
+        //       alert(error.response.data)
+        //     //   renderErrorMessage("uname")
+        //     });
 
     };
 
@@ -87,7 +98,7 @@ export default function InstituteLogIn() {
                 </div>
                 <div className="button-container">
                     <input type="submit" />
-                    <Form onSubmit={this.handleSubmit} />
+                    <form onSubmit={handleSubmit} />
                 </div>
             </form>
         </div>
@@ -95,13 +106,13 @@ export default function InstituteLogIn() {
 
 
     return (
-        
-            <div className="app">
-                <div className="login-form">
-                    <div className="title">Institute Log In for ICCR</div>
-                    {isSubmitted ? <div>You Logged In Succesfully </div> : renderForm}
-                </div>
+
+        <div className="app">
+            <div className="login-form">
+                <div className="title">Institute Log In for ICCR</div>
+                {isSubmitted ? <div>You Logged In Succesfully </div> : renderForm}
             </div>
-        
+        </div>
+
     )
 }
