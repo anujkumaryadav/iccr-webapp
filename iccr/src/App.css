@@ -62,3 +62,7 @@ input[type="submit"]:hover {
   gap: 8px;
   margin: 10px;
 }
+
+.border{
+  border: 2px solid black;
+}
