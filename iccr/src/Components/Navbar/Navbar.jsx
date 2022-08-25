@@ -13,7 +13,7 @@ export default function Navbar() {
       </div>
 
       <div className='nav-login '>
-        <span>Login</span>
+        <span>Logout</span>
       {/* <Link to="/login">Login</Link> */}
       </div>
 

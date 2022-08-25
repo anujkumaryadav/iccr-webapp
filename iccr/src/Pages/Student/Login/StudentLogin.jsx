@@ -1,10 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios'
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import { Dropdown } from "react-bootstrap/Dropdown";
 
 export default function StudentLogin() {
+
+
+    const navigate = useNavigate()
 
     // React States
     // const [errorMessages, setErrorMessages] = useState({});
@@ -133,7 +136,7 @@ export default function StudentLogin() {
             <div className="app">
                 <div className="login-form">
                     <div className="title">STUDENT SIGN UP PAGE</div>
-                    {isSubmitted ? <div>You Logged In Succesfully </div> : renderForm}
+                    {isSubmitted ? navigate('/studentdashboard') : renderForm}
                 </div>
             </div>
         </>
