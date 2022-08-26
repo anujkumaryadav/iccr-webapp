@@ -1,111 +1,89 @@
-import React from 'react'
-import Navbar from '../../../Components/Navbar/Navbar'
-import { useState, useEffect, useRef } from 'react'
-import { FiCamera, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useEffect, useState } from 'react';
+import 'react-bootstrap'
 import './Dashboard.css'
+import Navbar from './ICCRNavbar';
+import Sidebar from './ICCRSidebar'
 
-export default function Home() {
+const ICCRDashboard = () => {
 
-  const [distance, setDistance] = useState(0)
-  const slider = useRef()
 
-  useEffect(() => {
-    if (distance > -1400 && distance <= 0) {
-      slider.current.style.transform = `translateX(${distance}px)`
-    } else {
-      setDistance(0)
+    const [record, setRecord] = useState([])
+
+    const getData = () => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(resposne => resposne.json())
+            .then(res => setRecord(res))
     }
-  }, [distance])
+
+    useEffect(() => {
+        getData();
+    })
 
 
-  return (
-    <>
-      <header>
-        ICCR DASHBOARD
-      </header>
-      <Navbar />
-      <section className="home container ">
+    return (
+        <>
+            <header>ICCR Office Dashboard</header>
+            <Navbar />
 
-        <p>All Regional Offices</p>
+            <section className='ro-section'>
 
-        <div className="image-slider ">
-          <FiChevronLeft className='icon' onClick={() => {
-            setDistance(distance - 200)
-          }} />
-          <div className="slider-still ">
+            <Sidebar/>
 
-            <div className="image-container " ref={slider}>
+            <div class="col main p-5 mt-3  ro-dashboard ">
+                <p class="lead d-none d-sm-block">ICCR Details</p>
+                <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+   
+                <div class="row mb-3">
+            <div class="col-xl-3 col-sm-6 py-2">
+                <div class="card bg-success text-white h-100">
+                    <div class="card-body bg-success" style={{backgroundColor:"#57b960"}}>
+                        <div class="rotate">
+                            <i class="fa fa-user fa-4x"></i>
+                        </div>
+                        <h6 class="text-uppercase">Users</h6>
+                        <h1 class="display-4">134</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 py-2">
+                <div class="card text-white bg-danger h-100">
+                    <div class="card-body bg-danger">
+                        <div class="rotate">
+                            <i class="fa fa-list fa-4x"></i>
+                        </div>
+                        <h6 class="text-uppercase">Posts</h6>
+                        <h1 class="display-4">87</h1>
+                    </div>
+                </div>
+            </div>
+            
+    </div>
 
-              <div className='slider-image border'  >
+                <hr />
 
-                <p>REGIONAL OFFICE (MUMBAI)</p>
-                <div className='ro-image border' style={{ backgroundImage: "url(/Images/RO.jpg)", backgroundSize: "cover" }} > </div>
-                <div className='ro-info ' >
-                  <p>Address</p>
-                  <p>About</p>
-                  <p>Rating</p>
+                <div class="card-columns mb-3">
+                    <div class="card">
+                        <img class="card-img-top img-fluid" src="#" alt="Card image cap" />
+                        <div class="card-body">
+                            <h4 class="card-title"></h4>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+
+
                 </div>
 
-              </div>
-
-              <div className='slider-image border'  >
-
-                <p>REGIONAL OFFICE (MUMBAI)</p>
-                <div className='ro-image border' style={{ backgroundImage: "url(/Images/RO.jpg)", backgroundSize: "cover" }}> </div>
-                <div className='ro-info ' >
-                  <p>Address</p>
-                  <p>About</p>
-                  <p>Rating</p>
-                </div>
-
-              </div>
-
-              <div className='slider-image border'  >
-
-                <p>REGIONAL OFFICE (MUMBAI)</p>
-                <div className='ro-image border' style={{ backgroundImage: "url(/Images/RO.jpg)", backgroundSize: "cover" }} > </div>
-                <div className='ro-info ' >
-                  <p>Address</p>
-                  <p>About</p>
-                  <p>Rating</p>
-                </div>
-
-              </div>
-
-              <div className='slider-image border'  >
-
-                <p>REGIONAL OFFICE (MUMBAI)</p>
-                <div className='ro-image border' style={{ backgroundImage: "url(/Images/RO.jpg)", backgroundSize: "cover" }} > </div>
-                <div className='ro-info ' >
-                  <p>Address</p>
-                  <p>About</p>
-                  <p>Rating</p>
-                </div>
-
-              </div>
-
-              <div className='slider-image border'  >
-
-                <p>REGIONAL OFFICE (MUMBAI)</p>
-                <div className='ro-image border'style={{ backgroundImage: "url(/Images/RO.jpg)", backgroundSize: "cover" }} > </div>
-                <div className='ro-info ' >
-                  <p>Address</p>
-                  <p>About</p>
-                  <p>Rating</p>
-                </div>
-
-              </div>
 
             </div>
 
-          </div>
-          <FiChevronRight className='icon' onClick={() => {
-            setDistance(distance + 200)
-          }} />
+            </section>
 
-        </div>
-
-      </section>
-    </>
-  )
+        </>);
 }
+
+export default ICCRDashboard;

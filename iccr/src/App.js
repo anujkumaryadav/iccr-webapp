@@ -11,6 +11,7 @@ import ICCRDashboard from './Pages/ICCR/Dashboard/Dashboard'
 import StudentDashboard from "./Pages/Student/Dashboard/StudentDashboard";
 import ROLogin from "./Pages/RO/Login/ROLogin";
 import RODashboard from "./Pages/RO/Dashboard/Dashboard";
+import ICCRManageRO from "./Pages/ICCR/Dashboard/ManageRO";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/studentDashboard' element={<StudentDashboard/>} />
           <Route path='/ROLogin' element={<ROLogin/>} />
           <Route path='/RODashboard' element={<RODashboard/>} />
+          <Route path='/manageRO' element={<ICCRManageRO/>} />
         </Routes>
       
       </BrowserRouter>

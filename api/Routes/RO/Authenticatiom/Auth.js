@@ -70,7 +70,8 @@ router.post('/login', async (req, res) => {
 
 router.get('/getRating', async (req, res) => {
 
-    const officeName = req.body.officeName
+    const officeName = req.query.officeName
+    console.log(officeName)
 
 
     try{
@@ -84,6 +85,7 @@ router.get('/getRating', async (req, res) => {
         res.json( (ratings/100) * 5 )
 
     }catch(err){
+        console.log(err)
         console.log(err)
         res.status(401).json("Invalid officeName")
     }
