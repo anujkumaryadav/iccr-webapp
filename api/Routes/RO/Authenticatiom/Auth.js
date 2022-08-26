@@ -9,12 +9,16 @@ router.post('/register', async (req, res) => {
 
     const officeName = req.body.officeName
     const password = req.body.password
+    const eventsCompleted = req.body.eventsCompleted
+    const extraEvents = req.body.extraEvents
 
     try{
 
         const newCred = new ROAuth({
             officeName : officeName,
             password : CryptoJS.AES.encrypt(password, process.env.SECRET_KEY).toString(),//Encryptes Password,
+            eventsCompleted : eventsCompleted,
+            extraEvents : extraEvents,
             last_login : new Date()
         })
 
@@ -34,6 +38,7 @@ router.post('/login', async (req, res) => {
 
     const officeName = req.body.officeName
     const password = req.body.password
+
 
     try{
         const RO = await ROAuth.findOne({ officeName : officeName })

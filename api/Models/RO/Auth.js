@@ -3,6 +3,8 @@ const mongoose = require("mongoose")
 const AuthSchema = new mongoose.Schema({
     officeName : { type:String , required:true},
     password : { type:String , required:true},
+    eventsCompleted : { type:Number , required:true},
+    extraEvents : { type:Number , required:false},
     last_login : { type:Date , required:true }
 })
 
