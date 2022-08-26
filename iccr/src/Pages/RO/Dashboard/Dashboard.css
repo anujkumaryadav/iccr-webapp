@@ -1,0 +1,14 @@
+.ro-section{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+
+}
+
+
+
+
+#sidebar{
+    height: 100vh;
+}
