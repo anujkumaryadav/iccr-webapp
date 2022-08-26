@@ -12,6 +12,8 @@ import StudentDashboard from "./Pages/Student/Dashboard/StudentDashboard";
 import ROLogin from "./Pages/RO/Login/ROLogin";
 import RODashboard from "./Pages/RO/Dashboard/Dashboard";
 import ICCRManageRO from "./Pages/ICCR/Dashboard/ManageRO";
+import ROrequestEvent from "./Pages/RO/Dashboard/ROrequestEvent";
+import ICCRManageEvent from "./Pages/ICCR/Dashboard/ManageEvent";
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
           <Route path='/ROLogin' element={<ROLogin/>} />
           <Route path='/RODashboard' element={<RODashboard/>} />
           <Route path='/manageRO' element={<ICCRManageRO/>} />
+          <Route path='/manageEvent' element={<ICCRManageEvent/>} />
+          <Route path='/requestEvent' element={<ROrequestEvent/>} />
         </Routes>
       
       </BrowserRouter>

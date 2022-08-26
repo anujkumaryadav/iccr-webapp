@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
+
 const ROSidebar = () => {
     return (
          <div class="col-md-3 col-lg-2 sidebar-offcanvas pl-0" id="sidebar" role="navigation" style={{backgroundColor:"#e9ecef"}}>
@@ -14,6 +17,7 @@ const ROSidebar = () => {
                 <li class="nav-item mb-2"><a class="nav-link text-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSc9_yNuWD0XejWSnx8C6bvrHHrT5vLf2g6HMSx80g1lzGZqug/viewform"><i class="fa fa-exclamation-circle"></i><span className="ml-3">Gravinance</span></a></li>
                 <li class="nav-item mb-2"><a class="nav-link text-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSfMDlA3k5SgpIqGFpk4QdkvwGzEqSCas93vgkqymw0yDRyckg/viewform"><i class="fa fa-check-square"></i><span className="ml-3">Feedbackform</span></a></li>
                 <li class="nav-item mb-2"><a class="nav-link text-secondary" href="#"><i class="fa fa-bell"></i> <span className="ml-3">Notification</span></a></li>
+                <Link to='/requestEvent'> <li class="nav-item mb-2"><a class="nav-link text-secondary" href="#"><i class="fa fa-bell"></i> <span className="ml-3">Request Event</span></a></li></Link>
               {  /*<li class="nav-item mb-2"><a class="nav-link text-secondary" href="#">Templates</a></li>
                 <li class="nav-item mb-2"><a class="nav-link text-secondary" href="#">Themes</a></li> */}
             </ul>
