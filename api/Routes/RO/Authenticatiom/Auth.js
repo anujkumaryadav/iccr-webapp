@@ -79,10 +79,10 @@ router.get('/getRating', async (req, res) => {
 
         let ratings = 0 
 
-        let eventCompleted = RO.eventsCompleted  * 5
-        let extraEvents = (RO.extraEvents * 5)
-        ratings = (eventCompleted + extraEvents)
-        res.json( (ratings/100) * 5 )
+        let eventCompleted = RO.eventsCompleted 
+        let extraEvents = RO.extraEvents 
+        ratings = ((eventCompleted* 5 + extraEvents * 5) / 100) * 5
+        res.json( {ratings , eventCompleted , extraEvents } )
 
     }catch(err){
         console.log(err)

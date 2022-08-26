@@ -11,7 +11,7 @@ const ICCRManageRO = () => {
 
 
     const [record, setRecord] = useState([])
-    const [Rating, setRating] = useState()
+    const [ROdata, setROdata] = useState({})
 
     let officeName = "ROMumbai"
 
@@ -30,9 +30,9 @@ const ICCRManageRO = () => {
 
         axios(config)
             .then(function (response) {
-                console.log(response)
                 if (response.status === 200) {
-                    setRating(response.data)
+                    console.log(response.data)
+                    setROdata(response.data)
                 }
 
             })
@@ -75,7 +75,10 @@ const ICCRManageRO = () => {
                                 Some quick example text to build on the card title and make up the
                                 bulk of the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            <b> <p>Events Organized : {ROdata.eventCompleted} Events </p> </b>
+                            <b> <p>Extra Events : {ROdata.extraEvents} Events </p> </b>
+                            <b> <p>Ratings : {ROdata.ratings} Stars</p> </b>
+                            <Button variant="primary">view Details</Button>
                         </Card.Body>
                     </Card>
 
