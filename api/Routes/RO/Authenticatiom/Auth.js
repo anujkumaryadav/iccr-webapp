@@ -68,6 +68,28 @@ router.post('/login', async (req, res) => {
 })
 
 
+router.get('/getRating', async (req, res) => {
+
+    const officeName = req.body.officeName
+
+
+    try{
+        const RO = await ROAuth.findOne({ officeName : officeName })
+
+        let ratings = 0 
+
+        let eventCompleted = RO.eventsCompleted  * 5
+        let extraEvents = (RO.extraEvents * 5)
+        ratings = (eventCompleted + extraEvents)
+        res.json( (ratings/100) * 5 )
+
+    }catch(err){
+        console.log(err)
+        res.status(401).json("Invalid officeName")
+    }
+
+})
+
 
 
 module.exports = router
