@@ -1,9 +1,12 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function ROLogin() {
+
+    const navigate = useNavigate()
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -86,7 +89,7 @@ export default function ROLogin() {
             <div className="app">
                 <div className="login-form">
                     <div className="title">Regional Office Log In</div>
-                    {isSubmitted ? <div>You Logged In Succesfully </div> : renderForm}
+                    {isSubmitted ? navigate('/RODashboard') : renderForm}
                 </div>
             </div>
         
