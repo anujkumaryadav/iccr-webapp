@@ -1,6 +1,6 @@
 import {useEffect,useState} from 'react';
 import 'react-bootstrap'
-import Navbar from '../../../Components/Navbar/Navbar';
+import Navbar from '../Dashboard/RONavbar';
  
 const RODashboard = () => {
 
